@@ -62,7 +62,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
   const isFirstProject = projects.length > 0 && project.id === projects[0].id;
 
   return (
-    <SectionWrapper className="py-12 md:py-16 lg:py-20 bg-background">
+    <SectionWrapper className="py-12 md:py-16 lg:py-20 bg-background animate-fade-in-up">
       <div className="container mx-auto px-4 md:px-6 max-w-4xl">
         <div className="mb-8">
           <Button variant="outline" asChild>
