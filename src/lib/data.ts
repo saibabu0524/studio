@@ -1,5 +1,5 @@
 import type { Project, Skill, SocialLink, NavItem } from '@/types';
-import { Github, Linkedin, Twitter, Smartphone, Layers, Database, FileCode, Brain, Zap, LayoutGrid } from 'lucide-react';
+import { Github, Linkedin, Smartphone, Layers, Database, FileCode, Brain, Zap, LayoutGrid, Users, ShieldCheck, BarChart2, TestTube2, GitMerge, Cloud, Settings2, MessageSquare, Video } from 'lucide-react'; // Added more icons
 
 export const navItems: NavItem[] = [
   { label: 'Home', href: '#hero' },
@@ -12,82 +12,68 @@ export const navItems: NavItem[] = [
 export const skills: Skill[] = [
   { name: 'Kotlin', icon: FileCode, level: 95 },
   { name: 'Java', icon: FileCode, level: 90 },
-  { name: 'Android SDK', icon: Smartphone, level: 90 },
-  { name: 'Jetpack Compose', icon: Layers, level: 85 },
-  { name: 'MVVM Architecture', icon: LayoutGrid, level: 80 },
-  { name: 'Room Database', icon: Database, level: 75 },
-  { name: 'Dagger/Hilt', icon: Zap, level: 70 },
+  { name: 'Android SDK', icon: Smartphone, level: 95 },
+  { name: 'Jetpack Compose', icon: Layers, level: 90 },
+  { name: 'MVVM Architecture', icon: LayoutGrid, level: 90 },
+  { name: 'Room Database', icon: Database, level: 85 },
+  { name: 'Dagger/Hilt', icon: Settings2, level: 90 }, // Changed icon
+  { name: 'Coroutines & Flow', icon: Brain, level: 90 },
   { name: 'Retrofit & OkHttp', icon: Zap, level: 85 },
-  { name: 'Coroutines & Flow', icon: Brain, level: 80 },
-  { name: 'Git & GitHub', icon: Github, level: 90 },
+  { name: 'WebRTC', icon: Video, level: 80 },
+  { name: 'Firebase', icon: Cloud, level: 85 },
+  { name: 'Git & GitHub', icon: GitMerge, level: 95 }, // Changed icon
 ];
 
 export const projects: Project[] = [
   {
-    id: 'project-1',
-    title: 'ConnectSphere Messenger',
-    description: 'A real-time chat application built with modern Android technologies.',
-    longDescription: 'ConnectSphere Messenger is a feature-rich chat application demonstrating proficiency in real-time communication, local data persistence, and clean architecture. It includes features like one-on-one messaging, group chats, and push notifications.',
-    imageUrl: 'https://picsum.photos/seed/project1/600/400',
-    imageHint: 'chat app',
-    technologies: ['Kotlin', 'Jetpack Compose', 'Firebase', 'MVVM', 'Room'],
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.example.app1',
-    githubUrl: 'https://github.com/yourusername/project1',
-    date: '2023',
-  },
-  {
-    id: 'project-2',
-    title: 'FitTrack Activity Logger',
-    description: 'Track your fitness activities and monitor progress with detailed stats.',
-    longDescription: 'FitTrack helps users log workouts, track calories, and visualize their fitness journey. It leverages background services for activity tracking and provides insightful charts and summaries.',
-    imageUrl: 'https://picsum.photos/seed/project2/600/400',
-    imageHint: 'fitness tracker',
-    technologies: ['Java', 'XML Layouts', 'Android SDK', 'SQLite', 'Google Fit API'],
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.example.app2',
-    githubUrl: 'https://github.com/yourusername/project2',
-    date: '2022',
-  },
-  {
-    id: 'project-3',
-    title: 'RecipeFinder App',
-    description: 'Discover new recipes based on ingredients you have at home.',
-    longDescription: 'RecipeFinder allows users to search for recipes using various filters and save their favorites. It integrates with a third-party recipe API and offers a smooth, intuitive user experience.',
-    imageUrl: 'https://picsum.photos/seed/project3/600/400',
-    imageHint: 'recipe app',
-    technologies: ['Kotlin', 'Jetpack Compose', 'Retrofit', 'Coroutines', 'Hilt'],
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.example.app3',
-    githubUrl: 'https://github.com/yourusername/project3',
+    id: 'healthpass-hsbc',
+    title: 'HealthPass Module (HSBC HK App)',
+    description: 'Digital healthcare membership module in HSBC HK Mobile Banking app, enabling health plan enrollment and in-app video consultations.',
+    longDescription: 'Developed and maintained a comprehensive digital healthcare membership module integrated within the HSBC HK Mobile Banking app. Architected a secure, end-to-end solution enabling users to enroll in health plans, access preferential consultation rates, and book in-app video consultations. Engineered RESTful API integrations for real-time plan validation and membership updates, achieving stringent security and data privacy compliance. Overcame challenges in data synchronization by coordinating with cross-disciplinary teams, resulting in a highly responsive and intuitive user interface.',
+    imageUrl: 'https://picsum.photos/seed/healthpass/600/400',
+    imageHint: 'mobile banking healthcare',
+    technologies: ['Kotlin', 'Android SDK', 'RESTful APIs', 'Agile', 'Security Compliance'],
     date: '2023-Present',
   },
   {
-    id: 'project-4',
-    title: 'TaskMaster Pro',
-    description: 'A productivity app to manage tasks and boost efficiency.',
-    longDescription: 'TaskMaster Pro is a comprehensive task management solution with features like reminders, sub-tasks, project categorization, and collaboration. It showcases advanced UI/UX design and robust data handling.',
-    imageUrl: 'https://picsum.photos/seed/project4/600/400',
-    imageHint: 'task manager',
-    technologies: ['Kotlin', 'MVVM', 'Room', 'WorkManager', 'Material Design'],
-    githubUrl: 'https://github.com/yourusername/project4',
-    date: '2021',
+    id: 'playdate-chat',
+    title: 'PlayDate – Secure Chat',
+    description: 'End-to-end encrypted messaging platform with parental controls, real-time video calling, and interactive features.',
+    longDescription: 'Designed and implemented an end-to-end encrypted messaging platform with robust parental controls. Integrated WebRTC and Firebase to deliver seamless real-time video calling with interactive features such as emoji tracking and live drawing. Adopted an offline-first design with advanced local caching, significantly reducing latency and enhancing user engagement. Addressed network resiliency challenges by iterating on interface designs in close collaboration with UX teams, ensuring consistent performance across variable network conditions.',
+    imageUrl: 'https://picsum.photos/seed/playdate/600/400',
+    imageHint: 'secure chat app',
+    technologies: ['Kotlin', 'WebRTC', 'Firebase', 'Offline-first', 'Caching'],
+    date: '2023-Present',
+  },
+  {
+    id: 'mrc-court-booking',
+    title: 'MRC Court Booking',
+    description: 'Dynamic court booking system with real-time scheduling, automated reminders, and secure Stripe payment integration.',
+    longDescription: 'Architected a dynamic court booking system featuring real-time scheduling, automated reminders, and comprehensive multi-user support. Integrated Stripe for secure payment processing, resulting in a seamless and reliable transaction experience. Leveraged the MVVM architectural pattern to achieve enhanced code modularity and maintainability, supporting efficient future updates. Directed the project lifecycle from conceptualization through deployment, optimizing performance, real-time data synchronization, and proactive notification systems that improved user satisfaction.',
+    imageUrl: 'https://picsum.photos/seed/mrccourt/600/400',
+    imageHint: 'court booking system',
+    technologies: ['Kotlin', 'Stripe', 'MVVM', 'Real-time Sync'],
+    date: '2023-Present',
   },
 ];
 
 export const socialLinks: SocialLink[] = [
-  { name: 'GitHub', url: 'https://github.com/yourusername', icon: Github },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/yourusername', icon: Linkedin },
-  // { name: 'Twitter', url: 'https://twitter.com/yourusername', icon: Twitter },
+  { name: 'GitHub', url: 'https://github.com/saibabu0524', icon: Github },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/sai-babu-inukonda/', icon: Linkedin },
 ];
 
 export const personalInfo = {
-  name: "Your Name", // Replace with your name
-  title: "Android Developer",
-  profileImageUrl: "https://picsum.photos/seed/profile/300/300",
+  name: "Sai Babu",
+  title: "Software Developer (Android)",
+  profileImageUrl: "https://picsum.photos/seed/saibabu/400/400",
   profileImageHint: "profile picture",
-  heroSummary: "Passionate Android Developer with 5+ years of experience crafting high-quality, user-centric mobile applications. Proficient in Kotlin, Java, and modern Android frameworks.",
+  heroSummary: "Experienced Software Developer specializing in Android development with Java and Kotlin. I design, develop, and optimize mobile applications using MVVM, Jetpack Compose, and robust data management for scalable, high-performance solutions. Expertise in push notifications, API integrations, Android SDK, Firebase, WebRTC, and Agile methodologies.",
   aboutMe: {
-    background: "From a young age, I was fascinated by technology and its potential to solve real-world problems. This passion led me to pursue a career in software development, with a special focus on the Android ecosystem. I thrive on learning new technologies and applying them to create intuitive and impactful mobile experiences.",
-    education: "I hold a Bachelor's degree in Computer Science from [Your University Name]. Throughout my academic journey, I focused on mobile development courses and projects, solidifying my foundation in Android app development.",
-    approach: "My approach to Android development is centered around user experience, performance, and code quality. I believe in writing clean, maintainable, and testable code following best practices like MVVM or MVI. I enjoy collaborating with designers and product managers to transform ideas into polished, functional applications. Continuous learning and staying updated with the latest Android trends are integral to my development philosophy."
+    background: "My journey into software development began with a fascination for technology's potential to solve real-world problems, leading me to specialize in the Android ecosystem. I am passionate about creating intuitive and impactful mobile experiences by continuously learning and applying new technologies.",
+    education: "B.Tech in Computer Science from Jawaharlal Nehru Technological University, Kakinada (2019–2023, GPA: 7.1/10.0).",
+    approach: "As an Android Developer at Softsuave (2023-Present), I focus on user experience, performance, and code quality. I lead cross-functional Agile teams, architect RESTful API integrations with advanced caching (reducing load times by up to 20%), and apply SOLID principles for modular, scalable code. My expertise includes Jetpack Compose, ViewModel, Flow, Coroutines, Dagger/Hilt, and comprehensive testing (JUnit, Espresso, Mockito). I collaborate closely with product, UX, and QA teams to refine applications and enhance user engagement, leveraging Firebase and WebRTC for real-time features."
   },
-  email: "your.email@example.com" // Replace with your email
+  email: "saibabu2936@gmail.com",
+  phone: "+91 93902 48522",
+  location: "Bangalore, India"
 };

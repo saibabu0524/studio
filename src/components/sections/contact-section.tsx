@@ -24,14 +24,21 @@ export function ContactSection() {
               {personalInfo.email}
             </a>
           </div>
-          {/* Optional: Add phone number if desired
-          <div className="flex items-center space-x-3">
-            <Smartphone className="w-6 h-6 text-primary" />
-            <a href="tel:+1234567890" className="text-lg hover:text-primary transition-colors">
-              +1 (234) 567-890
-            </a>
-          </div> 
-          */}
+          {personalInfo.phone && (
+            <div className="flex items-center space-x-3">
+              <Smartphone className="w-6 h-6 text-primary" />
+              <a href={`tel:${personalInfo.phone.replace(/\s/g, '')}`} className="text-lg hover:text-primary transition-colors">
+                {personalInfo.phone}
+              </a>
+            </div>
+           )}
+           {personalInfo.location && (
+            <div className="flex items-center space-x-3">
+              {/* Using a generic icon for location as lucide-react might not have a specific one like MapPin */}
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-primary"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <p className="text-lg text-muted-foreground">{personalInfo.location}</p>
+            </div>
+           )}
           <h3 className="text-2xl font-semibold pt-4">Connect With Me</h3>
           <div className="flex space-x-4">
             {socialLinks.map((link) => (

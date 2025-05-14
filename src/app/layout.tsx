@@ -4,7 +4,7 @@ import './globals.css';
 import { ThemeProvider } from '@/components/ui/theme-provider';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { Toaster } from '@/components/ui/toaster'; // Ensure Toaster is imported
+import { Toaster } from '@/components/ui/toaster';
 import { personalInfo } from '@/lib/data';
 
 const geistSans = Geist({
@@ -17,10 +17,12 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
-  title: `Androfolio - ${personalInfo.name}`,
-  description: `Portfolio of ${personalInfo.name}, an ${personalInfo.title} showcasing skills and projects.`,
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: `${personalInfo.name} - ${personalInfo.title}`,
+    description: `Portfolio of ${personalInfo.name}, an ${personalInfo.title} showcasing skills and projects.`,
+  };
+}
 
 export default function RootLayout({
   children,
