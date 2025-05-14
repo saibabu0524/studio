@@ -21,7 +21,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             data-ai-hint={project.imageHint || "application screenshot"}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="(max-width: 767px) 100vw, 50vw"
           />
         </div>
       </Link>

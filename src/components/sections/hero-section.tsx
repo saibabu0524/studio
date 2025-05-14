@@ -29,7 +29,7 @@ export function HeroSection() {
           </div>
         </div>
         <div className="relative group aspect-square max-w-md mx-auto md:max-w-none">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
           <Image
             src={personalInfo.profileImageUrl}
             alt={`${personalInfo.name} - ${personalInfo.title}`}
@@ -38,6 +38,7 @@ export function HeroSection() {
             priority
             className="rounded-full object-cover shadow-2xl relative z-10 aspect-square"
             data-ai-hint={personalInfo.profileImageHint}
+            sizes="(max-width: 448px) 100vw, 400px"
           />
         </div>
       </div>

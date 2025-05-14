@@ -58,9 +58,6 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
     notFound();
   }
 
-  // Determine if this project is the first in the list for priority loading
-  const isFirstProject = projects.length > 0 && project.id === projects[0].id;
-
   return (
     <SectionWrapper className="py-12 md:py-16 lg:py-20 bg-background animate-fade-in-up">
       <div className="container mx-auto px-4 md:px-6 max-w-4xl">
@@ -81,8 +78,8 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               fill
               className="object-cover"
               data-ai-hint={project.imageHint || "application interface"}
-              priority={isFirstProject} // Prioritize loading for potentially the most important project image
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={true} 
+              sizes="(max-width: 896px) 100vw, 896px"
             />
           </div>
           <CardHeader className="p-6">
