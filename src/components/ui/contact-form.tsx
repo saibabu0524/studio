@@ -1,6 +1,8 @@
+// src/components/ui/contact-form.tsx
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormStatus } from "react-dom";
+import { useActionState, useEffect } from "react"; // Changed from useFormState (react-dom) to useActionState (react)
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -10,7 +12,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { submitContactForm, type ContactFormState } from "@/app/actions";
-import { useEffect } from "react";
 import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 
 const contactFormSchema = z.object({
@@ -37,25 +38,64 @@ function SubmitButton() {
 }
 
 export function ContactForm() {
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  // Updated to use useActionState
+  const [state, formAction] = useActionState<ContactFormState, FormData>(submitContactForm, initialState);
   
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormValues>({
+  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      name: state.fields?.name || "",
-      email: state.fields?.email || "",
-      message: state.fields?.message || "",
+    defaultValues: { // Set initial defaultValues which might be overridden by useEffect if state.fields exists
+      name: "",
+      email: "",
+      message: "",
     }
   });
 
   useEffect(() => {
     if (state.success) {
       reset(); // Reset form fields on successful submission
+    } else if (state.fields) {
+      // If form submission failed and we have field values, repopulate them
+      // This helps retain user input on server-side validation errors
+      setValue("name", state.fields.name || "");
+      setValue("email", state.fields.email || "");
+      setValue("message", state.fields.message || "");
     }
-  }, [state.success, reset]);
+  }, [state, reset, setValue]);
 
+
+  // The handleSubmit from react-hook-form is not directly compatible with formAction from useActionState in the same way.
+  // react-hook-form's handleSubmit is for client-side validation before submitting.
+  // Server actions are typically called directly in the form's `action` prop.
+  // We can still use react-hook-form for client-side validation and then manually call formAction or let the form submit.
+  // For this setup, we let RHF handle client validation, and if successful, the form's native `action` (which is `formAction`) will be triggered.
+  // The `onSubmit` from `handleSubmit(formAction)` is not quite right here.
+  // `handleSubmit` expects a function that receives the validated data.
+  // `formAction` from `useActionState` expects `(prevState, formData) => ...`
+  // The simplest way to integrate is to use `form.handleSubmit` to run client validation,
+  // and if it passes, then `formAction` (the server action) is called by the form's `action` prop.
+  // RHF's `handleSubmit` is usually for client-side submission logic, not directly passing to a server action hook like this.
+  // The `action` prop on the form should directly take the server action.
+  // `react-hook-form` can progressively enhance this.
+
+  const onFormSubmit = (data: ContactFormValues) => {
+    // This function is called by RHF's handleSubmit after client-side validation passes.
+    // We need to construct FormData to pass to the server action.
+    const formData = new FormData();
+    Object.keys(data).forEach(key => {
+      formData.append(key, data[key as keyof ContactFormValues]);
+    });
+    // Manually call the action. This is one way to do it.
+    // Or, ensure the form's `action` attribute is set to `formAction` and RHF doesn't prevent default.
+    // The `formAction` here is the one returned by `useActionState`.
+    (formAction as (payload: FormData) => void)(formData);
+
+  };
+  
+  // Pass the server action directly to the form's `action` prop.
+  // RHF's `handleSubmit` will perform client-side validation. If it passes,
+  // the form will submit, and the `formAction` (server action) will be invoked.
   return (
-    <form action={formAction} onSubmit={handleSubmit(formAction)} className="space-y-6">
+    <form action={formAction} onSubmit={handleSubmit(onFormSubmit)} className="space-y-6">
       {state.message && (
         <Alert variant={state.success ? "default" : "destructive"} className={state.success ? "bg-green-50 dark:bg-green-900/30 border-green-300 dark:border-green-700" : ""}>
           {state.success ? <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" /> : <AlertCircle className="h-4 w-4" />}
