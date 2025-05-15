@@ -11,9 +11,9 @@ export function AboutSection() {
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">About Me</h2>
         <p className="mt-4 text-lg text-muted-foreground">A Glimpse into My Journey and Philosophy</p>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="space-y-8 max-w-3xl mx-auto">
         <Card 
-          className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full animate-fade-in-up"
+          className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col animate-fade-in-up"
           style={{ animationDelay: '0.3s' }}
         >
           <CardHeader className="flex flex-row items-center gap-4">
@@ -25,7 +25,7 @@ export function AboutSection() {
           </CardContent>
         </Card>
         <Card 
-          className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full animate-fade-in-up"
+          className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col animate-fade-in-up"
           style={{ animationDelay: '0.5s' }}
         >
           <CardHeader className="flex flex-row items-center gap-4">
@@ -37,7 +37,7 @@ export function AboutSection() {
           </CardContent>
         </Card>
         <Card 
-          className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full animate-fade-in-up"
+          className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col animate-fade-in-up"
           style={{ animationDelay: '0.7s' }}
         >
           <CardHeader className="flex flex-row items-center gap-4">
