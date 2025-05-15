@@ -25,6 +25,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ProjectDetailPageProps) {
+  await Promise.resolve(); // Ensure params properties are accessed after a microtask tick
   const project = projects.find((p) => p.id === params.id);
 
   if (!project) {
@@ -42,9 +43,9 @@ export async function generateMetadata({ params }: ProjectDetailPageProps) {
         description: project.longDescription || project.description,
         images: [
           {
-            url: project.imageUrl, 
-            width: 1200, 
-            height: 630,  
+            url: project.imageUrl,
+            width: 1200,
+            height: 630,
             alt: project.title,
           },
         ],
@@ -52,7 +53,8 @@ export async function generateMetadata({ params }: ProjectDetailPageProps) {
   };
 }
 
-export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
+export default async function ProjectDetailPage({ params }: ProjectDetailPageProps) {
+  await Promise.resolve(); // Ensure params properties are accessed after a microtask tick
   const project = projects.find((p) => p.id === params.id);
 
   if (!project) {
@@ -79,7 +81,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               fill
               className="object-cover"
               data-ai-hint={project.imageHint || "application interface"}
-              priority={true} 
+              priority={true}
               sizes="(max-width: 896px) 100vw, 896px"
             />
           </div>
