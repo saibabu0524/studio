@@ -1,3 +1,4 @@
+
 import type { LucideIcon } from 'lucide-react';
 
 export interface NavItem {
@@ -34,4 +35,15 @@ export interface ContactFormData {
   name: string;
   email: string;
   message: string;
+}
+
+export interface Certification {
+  id: string;
+  title: string;
+  issuer: string;
+  date: string;
+  imageUrl?: string;
+  imageHint?: string;
+  description?: string;
+  credentialUrl?: string;
 }

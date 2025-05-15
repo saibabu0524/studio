@@ -1,12 +1,13 @@
 
-import type { Project, Skill, SocialLink, NavItem } from '@/types';
-import { Github, Linkedin, Smartphone, Layers, Database, FileCode, Brain, Zap, LayoutGrid, Users, ShieldCheck, BarChart2, TestTube2, GitMerge, Cloud, Settings2, MessageSquare, Video } from 'lucide-react';
+import type { Project, Skill, SocialLink, NavItem, Certification } from '@/types';
+import { Github, Linkedin, Smartphone, Layers, Database, FileCode, Brain, Zap, LayoutGrid, Users, ShieldCheck, BarChart2, TestTube2, GitMerge, Cloud, Settings2, MessageSquare, Video, Award, CalendarDays, Building } from 'lucide-react';
 
 export const navItems: NavItem[] = [
   { label: 'Home', href: '#hero' },
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Certifications', href: '#certifications'},
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -33,9 +34,9 @@ export const skills: Skill[] = [
   { name: 'WebRTC', icon: Video, level: 80 },
   { name: 'Firebase', icon: Cloud, level: 85 },
   { name: 'Git & GitHub', icon: GitMerge, level: 95 },
-  { name: 'Jira', icon: Users, level: 80 }, // Assuming Users or similar for Jira
+  { name: 'Jira', icon: Users, level: 80 },
   { name: 'Gradle', icon: Settings2, level: 90 },
-  { name: 'Jenkins', icon: Cloud, level: 70 }, // Assuming Cloud or similar for Jenkins
+  { name: 'Jenkins', icon: Cloud, level: 70 },
   { name: 'Confluence', icon: FileCode, level: 75 },
   { name: 'Espresso', icon: TestTube2, level: 80 },
   { name: 'JUnit', icon: TestTube2, level: 85 },
@@ -49,7 +50,7 @@ export const projects: Project[] = [
   {
     id: 'healthpass-hsbc',
     title: 'HealthPass Module (HSBC HK App)',
-    description: 'Engineered the HealthPass module for the HSBC HK Mobile Banking app, enabling seamless subscription management and healthcare service access using Kotlin, Jetpack Compose, and Android SDK.',
+    description: 'Engineered the HealthPass module for the HSBC HK Mobile Banking app, enabling seamless subscription management and healthcare service access.',
     longDescription: `Engineered the end-to-end HealthPass module within the HSBC HK Mobile Banking app using Kotlin, Jetpack Compose, and Android SDK, enabling seamless subscription management and healthcare service access.
 Integrated secure RESTful APIs with Retrofit for real-time data exchange with HSBCs backend, supporting plan validation, membership updates, and service provider information retrieval.
 Collaborated with design, product, and QA teams to optimize user workflows, designing a responsive and accessible UI that simplified enrollment and health membership management.
@@ -96,7 +97,7 @@ APPROACH TO TACKLING PROJECT COMPLEXITY:
     imageHint: 'secure chat app',
     technologies: ['Kotlin', 'XML', 'Android SDK', 'Android Architecture Components', 'Retrofit', 'Room', 'Firebase (FCM, Push Notifications)', 'WebRTC', 'Jetpack Compose', 'Constraint Layout', 'Material Design', 'MVVM', 'Clean Architecture', 'Coroutines', 'Hilt', 'Trello', 'Jira', 'Git', 'GitHub'],
     date: '2023-Present',
-    githubUrl: 'https://github.com/saibabu0524/playchat-android-app', // Example, replace with actual if available
+    githubUrl: 'https://github.com/saibabu0524/playchat-android-app',
   },
   {
     id: 'bookandplay-court-reservation',
@@ -122,10 +123,43 @@ APPROACH TO TACKLING PROJECT COMPLEXITY:
     imageHint: 'court booking system',
     technologies: ['Kotlin', 'XML', 'Android SDK', 'Retrofit', 'Firebase (FCM, Push Notifications)', 'Stripe', 'Jetpack Compose', 'Constraint Layout', 'Material Design', 'MVVM', 'Coroutines', 'Hilt', 'Trello', 'Jira', 'Git', 'GitHub', 'ICS file integration'],
     date: '2023-Present',
-    githubUrl: 'https://github.com/saibabu0524/bookandplay-android-app', // Example, replace with actual if available
+    githubUrl: 'https://github.com/saibabu0524/bookandplay-android-app',
   },
-  // Add more projects if needed
 ];
+
+export const certifications: Certification[] = [
+  {
+    id: 'android-associate-developer',
+    title: 'Associate Android Developer',
+    issuer: 'Google',
+    date: 'Expected 2024',
+    imageUrl: 'https://placehold.co/300x200.png',
+    imageHint: 'certificate android developer',
+    description: 'Official certification from Google recognizing core Android development skills.',
+    credentialUrl: '#' // Placeholder
+  },
+  {
+    id: 'kotlin-cert',
+    title: 'Certified Kotlin Developer',
+    issuer: 'JetBrains',
+    date: 'Expected 2024',
+    imageUrl: 'https://placehold.co/300x200.png',
+    imageHint: 'certificate kotlin',
+    description: 'Certification demonstrating proficiency in Kotlin programming language.',
+    credentialUrl: '#' // Placeholder
+  },
+   {
+    id: 'agile-scrum-master',
+    title: 'Certified ScrumMaster (CSM)',
+    issuer: 'Scrum Alliance',
+    date: 'Completed 2023',
+    imageUrl: 'https://placehold.co/300x200.png',
+    imageHint: 'certificate scrum agile',
+    description: 'Demonstrates understanding of Scrum framework and Agile principles.',
+    credentialUrl: '#' // Placeholder
+  }
+];
+
 
 export const socialLinks: SocialLink[] = [
   { name: 'GitHub', url: 'https://github.com/saibabu0524', icon: Github },
@@ -133,9 +167,9 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const personalInfo = {
-  name: "Sai Babu Inukonda", // Updated full name
+  name: "Sai Babu Inukonda",
   title: "Software Developer (Android)",
-  profileImageUrl: "https://placehold.co/400x400.png", // Using placeholder
+  profileImageUrl: "https://placehold.co/400x400.png",
   profileImageHint: "profile picture",
   heroSummary: "Experienced Software Developer specializing in Android development with Java and Kotlin. I design, develop, and optimize mobile applications using MVVM, Jetpack Compose, and structured data management for scalable, high-performance solutions. My expertise includes push notifications, API integrations, Android SDK, Firebase, WebRTC, and Agile methodologies.",
   aboutMe: {
@@ -156,5 +190,3 @@ Key contributions and responsibilities include:
   phone: "+91 93902 48522",
   location: "Bangalore, India"
 };
-
-    

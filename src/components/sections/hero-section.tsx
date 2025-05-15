@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SectionWrapper } from "@/components/layout/section-wrapper";
 import { personalInfo } from "@/lib/data";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -19,31 +19,42 @@ export function HeroSection() {
           </h1>
           <p 
             className="text-2xl font-medium text-primary sm:text-3xl motion-safe:animate-fade-in-up"
-            style={{ animationDelay: '0.2s' }}
+            style={{ animationDelay: '0.3s' }} // Increased delay
           >
             {personalInfo.title}
           </p>
           <p 
             className="text-lg text-muted-foreground max-w-xl mx-auto md:mx-0 motion-safe:animate-fade-in-up"
-            style={{ animationDelay: '0.3s' }}
+            style={{ animationDelay: '0.5s' }} // Increased delay
           >
             {personalInfo.heroSummary}
           </p>
           <div 
             className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start motion-safe:animate-fade-in-up"
-            style={{ animationDelay: '0.4s' }}
+            style={{ animationDelay: '0.7s' }} // Increased delay
           >
-            <Button size="lg" asChild className="shadow-lg hover:shadow-xl transition-shadow motion-safe:hover:-translate-y-0.5">
+            <Button size="lg" asChild className="shadow-lg motion-safe:hover:shadow-xl transition-shadow motion-safe:hover:-translate-y-0.5">
               <Link href="#projects">View Projects</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="shadow-lg hover:shadow-xl transition-shadow motion-safe:hover:-translate-y-0.5">
+            <Button size="lg" variant="outline" asChild className="shadow-lg motion-safe:hover:shadow-xl transition-shadow motion-safe:hover:-translate-y-0.5">
+              <Link href="/resume.pdf" download="Sai_Babu_Inukonda_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                <Download className="mr-2 h-5 w-5" />
+                Download Resume
+              </Link>
+            </Button>
+          </div>
+           <div 
+            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start motion-safe:animate-fade-in-up"
+            style={{ animationDelay: '0.9s' }} // Further delay for contact button
+          >
+            <Button size="lg" variant="secondary" asChild className="shadow-lg motion-safe:hover:shadow-xl transition-shadow motion-safe:hover:-translate-y-0.5">
               <Link href="#contact">Contact Me</Link>
             </Button>
           </div>
         </div>
         <div 
           className="relative group aspect-square max-w-md mx-auto md:max-w-none motion-safe:animate-fade-in-up"
-          style={{ animationDelay: '0.5s' }}
+          style={{ animationDelay: '0.5s' }} // Kept original delay for image
         >
           <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 motion-safe:animate-pulse"></div>
           <Image
@@ -58,7 +69,7 @@ export function HeroSection() {
           />
         </div>
       </div>
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block motion-safe:animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block motion-safe:animate-fade-in-up" style={{ animationDelay: '1.1s' }}>
         <Link href="#about" aria-label="Scroll to About section">
           <ArrowDown className="w-8 h-8 text-muted-foreground motion-safe:animate-bounce" />
         </Link>
