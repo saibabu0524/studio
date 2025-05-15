@@ -1,12 +1,13 @@
 
-import type { Project, Skill, SocialLink, NavItem, Certification } from '@/types';
-import { Github, Linkedin, Smartphone, Layers, Database, FileCode, Brain, Zap, LayoutGrid, Users, ShieldCheck, BarChart2, TestTube2, GitMerge, Cloud, Settings2, MessageSquare, Video, Award, CalendarDays, Building } from 'lucide-react';
+import type { Project, Skill, SocialLink, NavItem, Certification, WorkExperience } from '@/types';
+import { Github, Linkedin, Smartphone, Layers, Database, FileCode, Brain, Zap, LayoutGrid, Users, ShieldCheck, BarChart2, TestTube2, GitMerge, Cloud, Settings2, MessageSquare, Video, Award, CalendarDays, Building, Briefcase, MonitorPlay, Server, GanttChartSquare, Thermometer, Pipette, Cpu } from 'lucide-react';
 
 export const navItems: NavItem[] = [
   { label: 'Home', href: '#hero' },
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Experience', href: '#experience' },
   { label: 'Certifications', href: '#certifications'},
   { label: 'Contact', href: '#contact' },
 ];
@@ -25,8 +26,9 @@ export const skills: Skill[] = [
   { name: 'MVP Architecture', icon: LayoutGrid, level: 85 },
   { name: 'Clean Architecture', icon: ShieldCheck, level: 85 },
   { name: 'MVI Architecture', icon: LayoutGrid, level: 75 },
-  { name: 'Dagger/Hilt', icon: Settings2, level: 90 },
-  { name: 'Retrofit & OkHttp', icon: Zap, level: 90 },
+  { name: 'Dagger/Hilt', icon: Settings2, level: 90 }, // Dependency Injection
+  { name: 'Retrofit', icon: Zap, level: 90 },
+  { name: 'OkHttp', icon: Zap, level: 88 },
   { name: 'Socket.io', icon: MessageSquare, level: 70 },
   { name: 'RxJava', icon: Brain, level: 80 },
   { name: 'LiveData', icon: Brain, level: 85 },
@@ -34,15 +36,18 @@ export const skills: Skill[] = [
   { name: 'WebRTC', icon: Video, level: 80 },
   { name: 'Firebase', icon: Cloud, level: 85 },
   { name: 'Git & GitHub', icon: GitMerge, level: 95 },
-  { name: 'Jira', icon: Users, level: 80 },
+  { name: 'Jira', icon: GanttChartSquare, level: 80 },
   { name: 'Gradle', icon: Settings2, level: 90 },
-  { name: 'Jenkins', icon: Cloud, level: 70 },
+  { name: 'Jenkins', icon: Server, level: 70 },
   { name: 'Confluence', icon: FileCode, level: 75 },
+  { name: 'Android Studio', icon: MonitorPlay, level: 95 },
   { name: 'Espresso', icon: TestTube2, level: 80 },
   { name: 'JUnit', icon: TestTube2, level: 85 },
-  { name: 'Mockito', icon: TestTube2, level: 80 },
-  { name: 'TensorFlow Lite', icon: Brain, level: 60 },
-  { name: 'ML Kit', icon: Brain, level: 65 },
+  { name: 'Mockito', icon: Pipette, level: 80 },
+  { name: 'Android Profiler', icon: Thermometer, level: 75 },
+  // Systrace, Logcat, DDMS are tools used within Android Studio, covered by its skill.
+  { name: 'TensorFlow Lite', icon: Cpu, level: 60 },
+  { name: 'ML Kit', icon: Cpu, level: 65 },
   { name: 'OpenCV', icon: Layers, level: 60 },
 ];
 
@@ -50,7 +55,7 @@ export const projects: Project[] = [
   {
     id: 'healthpass-hsbc',
     title: 'HealthPass Module (HSBC HK App)',
-    description: 'Engineered the HealthPass module for the HSBC HK Mobile Banking app, enabling seamless subscription management and healthcare service access.',
+    description: 'Engineered the HealthPass module for the HSBC HK Mobile Banking app, enabling seamless subscription management and healthcare service access using Kotlin, Jetpack Compose, and Android SDK.',
     longDescription: `Engineered the end-to-end HealthPass module within the HSBC HK Mobile Banking app using Kotlin, Jetpack Compose, and Android SDK, enabling seamless subscription management and healthcare service access.
 Integrated secure RESTful APIs with Retrofit for real-time data exchange with HSBCs backend, supporting plan validation, membership updates, and service provider information retrieval.
 Collaborated with design, product, and QA teams to optimize user workflows, designing a responsive and accessible UI that simplified enrollment and health membership management.
@@ -127,6 +132,29 @@ APPROACH TO TACKLING PROJECT COMPLEXITY:
   },
 ];
 
+export const workExperiences: WorkExperience[] = [
+  {
+    id: 'softsuave-android-dev',
+    company: 'Softsuave',
+    role: 'Android Developer',
+    duration: '2023 – Present',
+    responsibilities: [
+      'Leading cross-functional Agile teams to design, develop, and deploy secure, high-performance Android applications, strengthening leadership and collaboration skills.',
+      'Architecting robust RESTful API integrations and implementing advanced caching strategies, reducing app load times by up to 20%.',
+      'Gaining deep expertise in core technologies like Jetpack Compose, ViewModel, Flow, and Coroutines for building scalable and efficient UI components.',
+      'Enhancing proficiency in dependency injection with Dagger/Hilt and modular app development to improve code reusability and maintainability.',
+      'Applying SOLID principles to design modular, scalable, and maintainable code architectures, ensuring long-term robustness and ease of enhancements.',
+      'Implementing advanced testing methodologies, including unit, integration, and UI testing with JUnit, Espresso, and Mockito, ensuring high code quality and reliability.',
+      'Collaborating closely with product managers, UX designers, and QA teams to refine user experiences and enhance application accessibility.',
+      'Expanding knowledge of Firebase, WebRTC, and push notification services for building real-time communication and engagement features.',
+    ],
+    techStack: ['Kotlin', 'Jetpack Compose', 'ViewModel', 'Flow', 'Coroutines', 'Dagger/Hilt', 'RESTful APIs', 'JUnit', 'Espresso', 'Mockito', 'Firebase', 'WebRTC', 'Agile Methodologies'],
+    logoUrl: 'https://placehold.co/100x100.png',
+    logoHint: 'company logo'
+  }
+];
+
+
 export const certifications: Certification[] = [
   {
     id: 'android-associate-developer',
@@ -169,24 +197,16 @@ export const socialLinks: SocialLink[] = [
 export const personalInfo = {
   name: "Sai Babu Inukonda",
   title: "Software Developer (Android)",
-  profileImageUrl: "https://placehold.co/400x400.png",
+  profileImageUrl: "https://placehold.co/400x400.png", // Replace with your actual image URL
   profileImageHint: "profile picture",
-  heroSummary: "Experienced Software Developer specializing in Android development with Java and Kotlin. I design, develop, and optimize mobile applications using MVVM, Jetpack Compose, and structured data management for scalable, high-performance solutions. My expertise includes push notifications, API integrations, Android SDK, Firebase, WebRTC, and Agile methodologies.",
+  heroSummary: "Experienced Software Developer specializing in Android development using Java and Kotlin. I design, develop, and optimize mobile applications, leveraging technologies like MVVM, Jetpack Compose, and structured data management to deliver scalable and high-performance solutions. My expertise includes push notifications, API integrations, Android SDK, Firebase, WebRTC, and Agile methodologies.",
   aboutMe: {
-    background: "My journey into software development began with a fascination for technology's potential to solve real-world problems, leading me to specialize in the Android ecosystem. I am passionate about creating intuitive and impactful mobile experiences by continuously learning and applying new technologies. I am a Software Developer with experience in Android development using Java and Kotlin. I specialize in designing, developing, and optimizing mobile applications, leveraging technologies like MVVM, Jetpack Compose, and structured data management to deliver scalable and high-performance solutions. My expertise includes push notifications, content providers, and seamless API integrations, ensuring efficient communication between applications and backend services. I am proficient in the Android SDK, Jetpack components, and modern architectural patterns, enabling the development of intuitive and maintainable user interfaces. Additionally, I have hands-on experience with Firebase, WebRTC, and Agile methodologies, contributing to enhanced app performance and user engagement.",
+    background: "I am a Software Developer with experience in Android development using Java and Kotlin. I specialize in designing, developing, and optimizing mobile applications, leveraging technologies like MVVM, Jetpack Compose, and structured data management to deliver scalable and high-performance solutions. My expertise includes push notifications, content providers, and seamless API integrations, ensuring efficient communication between applications and backend services. I am proficient in the Android SDK, Jetpack components, and modern architectural patterns, enabling the development of intuitive and maintainable user interfaces. Additionally, I have hands-on experience with Firebase, WebRTC, and Agile methodologies, contributing to enhanced app performance and user engagement.",
     education: "B.Tech in Computer Science from Jawaharlal Nehru Technological University, Kakinada (2019–2023, GPA: 7.1/10.0).",
-    approach: `As an Android Developer at Softsuave (2023-Present), I have been responsible for developing and integrating complex mobile features while ensuring optimal performance, Security and Maintainability. Throughout this role, I have enhanced my expertise in core and advanced Android development concepts, working extensively with technologies such as Jetpack Compose, ViewModel, Flow, Coroutines, and dependency injection frameworks like Dagger/Hilt.
-Key contributions and responsibilities include:
-• Leading cross-functional Agile teams to design, develop, and deploy secure, high-performance Android applications.
-• Architecting robust RESTful API integrations and implementing advanced caching strategies, reducing app load times by up to 20%.
-• Gaining deep expertise in core technologies like Jetpack Compose, ViewModel, Flow, and Coroutines for building scalable and efficient UI components.
-• Enhancing proficiency in dependency injection with Dagger/Hilt and modular app development to improve code reusability and maintainability.
-• Applying SOLID principles to design modular, scalable, and maintainable code architectures.
-• Implementing advanced testing methodologies (JUnit, Espresso, Mockito) ensuring high code quality and reliability.
-• Collaborating closely with product managers, UX designers, and QA teams to refine user experiences.
-• Expanding knowledge of Firebase, WebRTC, and push notification services for real-time features.`
+    approach: `At Softsuave (2023 – Present), I have been responsible for developing and integrating complex mobile features while ensuring optimal performance, security, and maintainability. Throughout this role, I have enhanced my expertise in core and advanced Android development concepts, working extensively with technologies such as Jetpack Compose, ViewModel, Flow, Coroutines, and dependency injection frameworks like Dagger/Hilt. My key contributions include leading Agile teams, architecting RESTful API integrations, implementing advanced caching, and applying SOLID principles for robust code architectures. I'm committed to continuous learning and applying new technologies to create intuitive and impactful mobile experiences.`
   },
   email: "saibabu2936@gmail.com",
   phone: "+91 93902 48522",
   location: "Bangalore, India"
 };
+

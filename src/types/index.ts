@@ -47,3 +47,16 @@ export interface Certification {
   description?: string;
   credentialUrl?: string;
 }
+
+export interface WorkExperience {
+  id: string;
+  company: string;
+  role: string;
+  duration: string;
+  responsibilities: string[];
+  techStack: string[];
+  contributions?: string[];
+  logoUrl?: string;
+  logoHint?: string;
+}
+
