@@ -1,4 +1,4 @@
-# Portfolio Website (formerly Androfolio)
+# Androfolio
 
 This is a Next.js application designed to serve as a personal portfolio. It allows you to showcase your projects, skills, and experience in a clean, modern web interface. This version has been personalized for Sai Babu.
 
@@ -25,4 +25,3 @@ To customize this portfolio for your use (if forking or adapting):
 5.  **Deploy**: Deploy the contents of the `.next` folder (after building) or connect your Git repository to your preferred hosting provider (e.g., Vercel, Netlify, Firebase Hosting).
 
 This project uses the name defined in `personalInfo.name` from `src/lib/data.ts` for the site title and header.
-```
